@@ -1,14 +1,12 @@
 from lexer import Lexer
 from parse import Parser
-from intrepreter import Intrepreter
+from interpreter import Interpreter
 from data import Data
 
 base = Data()
 
 while True:
-    text = input("Jo# Community Version 1: ")
-    if text == "exit":
-        break
+    text = input("Jo# Programming Console: ")
 
     tokenizer = Lexer(text)
     tokens = tokenizer.tokenize()
@@ -16,7 +14,7 @@ while True:
     parser = Parser(tokens)
     tree = parser.parse()
 
-    interpretor = Intrepreter(tree, base)
-    result = interpretor.interpret()
-
-    print(tree)
+    interpreter = Interpreter(tree, base)
+    result = interpreter.interpret()
+    if result is not None:
+        print(result)
