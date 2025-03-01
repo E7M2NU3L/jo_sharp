@@ -1,0 +1,6 @@
+store a : 1
+store b : 2
+
+store c : a + b
+
+show c
